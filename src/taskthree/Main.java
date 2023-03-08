@@ -3,18 +3,17 @@ package taskthree;
 public class Main {
     public static void main(String[] args) {
         Person petya = new Person("Петя");
-        Cat catPersik = new Cat("Персик");
-        Dog dogSnezhinka = new Dog("Снежинка");
+        Cat catPersik = new Cat("Персик", 1, "Рыжий", "Абиссинский кот");
+        Dog dogSnezhinka = new Dog("Снежинка", 4, "Белый", "Самоед");
 
+        petya.callPetToWalk(catPersik);
+        catPersik.toGoForAWalk();
 
-        petya.callPet(catPersik.getName());
-        System.out.println(catPersik.voice());
+        petya.callPetToWalk(dogSnezhinka);
+        dogSnezhinka.toGoForAWalk();
 
-        petya.callPet(dogSnezhinka.getName());
-        System.out.println(dogSnezhinka.voice());
+        catPersik.play();
+        dogSnezhinka.play();
 
-        petya.feedPet();
-        catPersik.goToBowl(catPersik.getName());
-        dogSnezhinka.goToBowl(dogSnezhinka.getName());
     }
 }

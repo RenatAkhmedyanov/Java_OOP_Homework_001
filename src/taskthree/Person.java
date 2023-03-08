@@ -1,6 +1,6 @@
 package taskthree;
 
-public class Person {
+public class Person implements CallToWalk {
     private String name;
 
     public Person(String name) {
@@ -11,13 +11,9 @@ public class Person {
         return this.name;
     }
 
-    public void callPet(String name){
-        System.out.println(this.name + " зовёт " + name);
+    @Override
+    public void callPetToWalk(Pet pet) {
+        System.out.println(this.name + " зовёт гулять " + pet);
     }
-
-    public void feedPet(){
-        System.out.println((this.name + " кладет еду в миску."));
-    }
-
 
 }

@@ -1,20 +1,17 @@
 package taskthree;
 
-
-
 public class Cat extends Pet {
-    private String name;
-    public Cat(String name){
-        super("Кот");
-        this.name = name;
+    public Cat(String name, int age, String color, String breed) {
+        super(name, age, color, breed);
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public void toGoForAWalk() {
+        System.out.println(super.getName() + " полностью игнорирует человека.");
     }
 
-
-    public String voice() {
-        return "Кот " + this.name + " говорит мяу";
+    @Override
+    public void play() {
+        System.out.println(super.getName() + " шуршит пакетом.");
     }
 }

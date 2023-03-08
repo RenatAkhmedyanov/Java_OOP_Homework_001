@@ -1,15 +1,17 @@
 package taskthree;
 
 public class Dog extends Pet{
-    private String name;
-    public Dog(String name){
-        super("Собака");
-        this.name = name;
+    public Dog(String name, int age, String color, String breed) {
+        super(name, age, color, breed);
     }
-    public String voice() {
-        return "Собака " + this.name + " говорит гав-гав";
+
+    @Override
+    public void toGoForAWalk() {
+        System.out.println(super.getName() + " c радостью бежит на улицу.");
     }
-    public String getName() {
-        return name;
+
+    @Override
+    public void play() {
+        System.out.println(super.getName() + " играет с мячом.");
     }
 }
