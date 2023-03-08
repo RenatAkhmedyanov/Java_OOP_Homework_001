@@ -3,5 +3,6 @@ package taskgeotree;
 public enum Relationship {
     parent,
     children,
-    broSister
+    brother,
+    sister
 }

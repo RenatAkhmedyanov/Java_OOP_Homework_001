@@ -19,16 +19,18 @@ public class Research {
         return result;
     }
 
-    public ArrayList<String> grandParents(Person p) {
-        String str = "";
+    public ArrayList<String> grandParents(Person p, String genderGP) {
+        ArrayList<String> names = new ArrayList<>();
         for (Node t : tree) {
-            if (t.p1.getFullName() == p.getFullName() && t.re == Relationship.children) {
-                str = t.p2.getFullName();
+            if (t.p1.getFullName() == p.getFullName() && t.re == Relationship.children ) {
+                names.add(t.p2.getFullName());
             }
         }
-        for (Node t : tree) {
-            if (t.p1.getFullName() == str && t.re == Relationship.children) {
-                result.add(t.p2.getFullName());
+        for (String s: names) {
+            for (Node t : tree) {
+                if (t.p1.getFullName() == s && t.re == Relationship.children && t.p2.getGender().equals(genderGP)) {
+                    result.add(t.p2.getFullName());
+                }
             }
         }
         return result;
