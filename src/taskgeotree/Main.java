@@ -53,9 +53,8 @@ public class Main {
         System.out.println("Родители Саши: " + new Research(gt).spend(sasha, Relationship.children));
         System.out.println("Дедушки Васи: " + new Research(gt).grandParents(vasya , "м"));
         System.out.println("Бабушки Васи: " + new Research(gt).grandParents(vasya, "ж"));
-
-
-
+        System.out.println("Дети Николая и Светланы: " + new Research(gt).spend(nikolai, Relationship.parent));
+        System.out.println("Для кого Ирина является сестрой: " + new Research(gt).spend(irina, Relationship.sister));
 
     }
 

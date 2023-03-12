@@ -2,7 +2,7 @@ package taskgeotree;
 
 import java.util.ArrayList;
 
-public class Research {
+public class Research implements SpendingResearch, FindingGrandParents {
     ArrayList<String> result = new ArrayList<>();
     ArrayList<Node> tree;
 
@@ -10,6 +10,7 @@ public class Research {
         tree = geoTree.getTree();
     }
 
+    @Override
     public ArrayList<String> spend(Person p, Relationship re) {
         for (Node t : tree) {
             if (t.p1.getFullName() == p.getFullName() && t.re == re) {
@@ -19,6 +20,7 @@ public class Research {
         return result;
     }
 
+    @Override
     public ArrayList<String> grandParents(Person p, String genderGP) {
         ArrayList<String> names = new ArrayList<>();
         for (Node t : tree) {
@@ -35,5 +37,4 @@ public class Research {
         }
         return result;
     }
-
 }
