@@ -1,5 +1,10 @@
 package taskgeotree;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Person irina = new Person("Ирина", "ж");
@@ -38,8 +43,8 @@ public class Main {
         gt.append(nikolai, Relationship.parent, nikita, Relationship.children);
         gt.append(svetlana, Relationship.parent, nikita, Relationship.children);
 
-        gt.append(irina, Relationship.sister, egor, Relationship.brother);
         gt.append(irina, Relationship.sister, nikita, Relationship.brother);
+        gt.append(irina, Relationship.sister, egor, Relationship.brother);
         gt.append(irina, Relationship.sister, yana, Relationship.sister);
         gt.append(egor, Relationship.brother, yana, Relationship.sister);
 
@@ -55,6 +60,34 @@ public class Main {
         System.out.println("Бабушки Васи: " + new Research(gt).grandParents(vasya, "ж"));
         System.out.println("Дети Николая и Светланы: " + new Research(gt).spend(nikolai, Relationship.parent));
         System.out.println("Для кого Ирина является сестрой: " + new Research(gt).spend(irina, Relationship.sister));
+
+        System.out.println("--------");
+        ArrayList<String> list = new ArrayList<>(new Research(gt).spend(nikolai, Relationship.parent));
+        Collections.sort(list, new PersonNameComparator());
+        System.out.println("Дети Николая и Светланы по алфавиту: " + list);
+        Iterator<String> iterator = list.iterator();
+        Scanner scn = new Scanner(System.in);
+        System.out.print("Введите имя для проверки: ");
+        String input = scn.nextLine();
+        int count = 0;
+        while (iterator.hasNext()){
+            String next = iterator.next();
+            if (next.equals(input)){
+                count++;
+            }
+        }
+        if (count > 0) {
+            System.out.println("Искомый человек является ребенком Николая и Светланы!");
+        } else {
+            System.out.println("Искомый человек не является ребенком Николая и Светланы!");
+        }
+
+
+
+        list = new Research(gt).spend(irina, Relationship.sister);
+        Collections.sort(list, new PersonNameComparator());
+        System.out.println("Братья и сестры Ирины по алфавиту: " + list);
+
 
     }
 

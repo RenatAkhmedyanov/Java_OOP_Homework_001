@@ -22,4 +22,13 @@ public class Person {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null){
+            return false;
+        } else if (this.getClass() != obj.getClass()){
+            return false;
+        } else return this.getFullName().equals(((Person) obj).getFullName());
+    }
 }

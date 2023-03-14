@@ -49,4 +49,13 @@ public abstract class Pet implements Walking, Playing {
     public String toString() {
         return this.name;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null){
+            return false;
+        } else if (this.getClass() != obj.getClass()){
+            return false;
+        } else return this.getColor().equals(((Pet) obj).getColor());
+    }
 }
